@@ -8,6 +8,7 @@ from med_center_right import *
 
 LEFT = 0
 RIGHT = 1
+LIGHT_SENSOR = 1
     
 def main():
 	enable_servos()
@@ -15,7 +16,7 @@ def main():
 #GET INTO STARTING BOX POSITION!
   	arm_back(50)
   	claw_open(50)
-  	msleep(5000)
+  	wait_for_start(LIGHT_SENSOR)
 #GO SCORE FIRETRUCK
  	shut_down_in(120)
         
