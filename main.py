@@ -5,22 +5,24 @@ from movement import *
 from effectors import *
 from med_center_left import *
 from med_center_right import *
+from wait_for_start import *
 
 LEFT = 0
 RIGHT = 1
 LIGHT_SENSOR = 1
-    
 def main():
 	enable_servos()
         
 #GET INTO STARTING BOX POSITION!
   	arm_back(50)
   	claw_open(50)
-  	wait_for_start(LIGHT_SENSOR)
+  	#wait_for_start(LIGHT_SENSOR)
+ 	msleep(3000)
 #GO SCORE FIRETRUCK
  	shut_down_in(120)
+  	msleep(5000) #wait for big robot
         
-	backward_time(100, 1000) # go hit against start box pipe
+	#backward_time(100, 1000) # go hit against start box pipe
   	forward(900, 500)
     #forward_time(100, 500) #go forward 
   	left(900, 900) #turn to left side of start box

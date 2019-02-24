@@ -8,11 +8,13 @@ ARM_D = 1600
 ARM_U = 500
 ARM_B = 50
 ARM_F = 1650
+ARM_SU =1550
 ARM_DROP_F = 975
 
 CLAW_P = 2
 CLAW_O = 1100
 CLAW_C = 500
+CLAW_H = 800
 STANDARD_STEP = 100
 
 def move_servo_slow(port, start_pos, end_pos, step):
@@ -32,6 +34,10 @@ def arm_up(step):
         
 def arm_back(step):
 	move_servo_slow(ARM_P, ARM_D, ARM_B, step)
+
+def arm_su(step):
+	move_servo_slow(ARM_P, ARM_D, ARM_SU, step)
+        
         
 def arm_fireman(step):
 	move_servo_slow(ARM_P, ARM_U, ARM_F, step)
@@ -44,4 +50,7 @@ def claw_open(step):
         
 def claw_close(step):
 	move_servo_slow(CLAW_P, CLAW_O, CLAW_C, step)
+
+def claw_half(step):
+	move_servo_slow(CLAW_P, CLAW_C, CLAW_H, step)
 
