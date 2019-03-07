@@ -9,9 +9,6 @@ RMOTOR = 0
 def forward(speed, ticks):
 	cmpc(RMOTOR)
   	cmpc(LMOTOR)
-	#mrp(RMOTOR, speed, ticks)
-	#mrp(LMOTOR, speed, ticks)
-  	#bmd(LMOTOR)
   	mav(LMOTOR, speed)
   	mav(RMOTOR, speed)
  	while gmpc(LMOTOR) < ticks:
