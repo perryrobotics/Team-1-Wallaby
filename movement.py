@@ -1,7 +1,12 @@
 #!/usr/bin/python
+
+#File: movement.py
+#Purpose:  Code to move the Wallaby robot
+
 import os, sys
 from wallaby import *
 
+#Constants
 DELAY = 100
 LMOTOR = 3
 RMOTOR = 0
@@ -21,9 +26,6 @@ def backward(speed, ticks):
   	cmpc(LMOTOR)
   	mav(LMOTOR, -speed)
   	mav(RMOTOR, -speed)
-	#mrp(RMOTOR, speed, -ticks)
-	#mrp(LMOTOR, speed, -ticks)
-  	#bmd(LMOTOR)
  	while gmpc(LMOTOR) >-ticks:
 		pass
   	ao()  
@@ -36,9 +38,6 @@ def left(speed, ticks):
   	cmpc(LMOTOR)
  	mav(LMOTOR, -speed)
  	mav(RMOTOR, speed)
-	#mrp(RMOTOR, speed, ticks)
-	#mrp(LMOTOR, speed, -ticks)
-  	#bmd(LMOTOR)
   	while gmpc(RMOTOR) < ticks:
 		pass
 	ao()
@@ -51,9 +50,6 @@ def right(speed, ticks):
   	cmpc(LMOTOR)
   	mav(LMOTOR, speed)
   	mav(RMOTOR, -speed)
-	#mrp(RMOTOR, speed, -ticks)
-	#mrp(LMOTOR, speed, ticks)
-  	#bmd(RMOTOR)
  	while gmpc(LMOTOR) < ticks:
 		pass 
 	ao()
@@ -103,3 +99,11 @@ def move_to_white(speed, port, thresh):
    	cmpc(RMOTOR)
   	cmpc(LMOTOR)
   	msleep(DELAY)
+
+def back_to_white(speed, port, thresh): 
+	mav(LMOTOR, -speed)
+  	mav(RMOTOR, -speed)
+	while analog(port) < thresh:
+		pass
+ 	ao()
+ 	msleep(DELAY)
